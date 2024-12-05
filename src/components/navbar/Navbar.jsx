@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className="flex items-center justify-between p-4 md:px-8">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="../logo.png" alt="Logo" className="h-12 w-24" />
+          <img src="../logo.png" alt="Logo" className="h-20 w-24" />
         </div>
 
         {/* Hamburger Icon */}
