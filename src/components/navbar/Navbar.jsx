@@ -6,7 +6,7 @@ import searchIcon from "../../assets/search.png";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    
+
     const [lsCartData, setLSCartData] = useState(
         JSON.parse(localStorage.getItem("Cart")) || []
     );
@@ -15,7 +15,6 @@ export default function Navbar() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-    
 
     // Update cart count when local storage data changes
     useEffect(() => {
@@ -44,7 +43,13 @@ export default function Navbar() {
         <header className="shadow-md w-full top-0 bg-primary z-10">
             <nav className="flex items-center justify-between p-4 md:px-8">
                 <div className="flex justify-center items-center">
-                    <img src={logo} className="w-20 h-16" alt="himras-logo" />
+                    <Link to="/">
+                        <img
+                            src={logo}
+                            className="w-20 h-16"
+                            alt="himras-logo"
+                        />
+                    </Link>
                 </div>
 
                 <div className="hidden md:flex items-center justify-center md:justify-start p-2">
@@ -109,7 +114,11 @@ export default function Navbar() {
                     </div>
 
                     {/* Navigation page */}
-                    <div className={`${isOpen ? "block" : "hidden" } fixed h-screen w-screen bg-primary top-0 left-0`}>
+                    <div
+                        className={`${
+                            isOpen ? "block" : "hidden"
+                        } fixed h-screen w-screen bg-primary top-0 left-0`}
+                    >
                         <ul className="h-full w-full flex justify-center items-center flex-col gap-10">
                             <li onClick={toggleMenu}>
                                 <Link to="/">Home</Link>
@@ -122,7 +131,10 @@ export default function Navbar() {
                             </li>
                         </ul>
 
-                        <div className="relative top-[-90%] left-[85%]" onClick={toggleMenu}>
+                        <div
+                            className="relative top-[-90%] left-[85%]"
+                            onClick={toggleMenu}
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="32"
