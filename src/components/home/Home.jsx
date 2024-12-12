@@ -107,75 +107,75 @@ export default function Home() {
                 <h2 className="text-center text-4xl mb-8">Products Gallery</h2>
 
                 {/* Product Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="">
                         <img
                             src={gal1}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal2}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal3}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal4}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal5}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal6}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal7}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal8}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="">
                         <img
                             src={gal9}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                     <div className="block md:hidden">
                         <img
                             src={gal10}
                             alt=""
-                            className="w-full h-64 object-cover"
+                            className="w-full h-64  object-cover"
                         />
                     </div>
                 </div>
