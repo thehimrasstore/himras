@@ -76,7 +76,7 @@ export default function Home() {
       </div>
 
       {/* Image Section */}
-      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-8 md:mb-0">
+      <div className="flex justify-center items-center lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-8 md:mb-0">
         <img
           className="object-cover object-center rounded"
           alt="hero"
