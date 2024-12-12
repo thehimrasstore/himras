@@ -46,7 +46,7 @@ export default function Home() {
                                 you’re also supporting sustainable livelihoods
                                 and empowering communities.
                             </p>
-                            <div className="flex justify-center">
+                            <div className="flex justify-center my-6 md:my-0">
                                 <button className="inline-flex text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded text-lg">
                                     Know More
                                 </button>
@@ -59,57 +59,54 @@ export default function Home() {
             {/* add */}
 
             <section className="bg-secondary">
-                <section className="text-white body-font">
-                    <div className="container mx-auto flex px-5 py-6 md:flex-row flex-col items-center">
-                        {/* Left Section - Home-made products, From the Taste of Himalayas, Made with traditional methods */}
-                        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>Home-made products</p>
-                            </div>
+  <section className="text-white body-font">
+    <div className="container mx-auto flex px-5 py-6 md:flex-row flex-col items-center">
+      {/* Left Section - Home-made products, From the Taste of Himalayas, Made with traditional methods */}
+      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>Home-made products</p>
+        </div>
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>From the Taste of Himalayas</p>
+        </div>
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>Made with traditional methods</p>
+        </div>
+      </div>
 
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>From the Taste of Himalayas</p>
-                            </div>
+      {/* Image Section */}
+      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-8 md:mb-0">
+        <img
+          className="object-cover object-center rounded"
+          alt="hero"
+          src={bannerImage}
+        />
+      </div>
 
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>Made with traditional methods</p>
-                            </div>
-                        </div>
+      {/* Right Section - Certified by, 100% purely extracted, None supplementary materials */}
+      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>Certified by --</p>
+        </div>
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>100% purely extracted by nature</p>
+        </div>
+        <div className="mb-8 leading-relaxed text-xl w-full pl-6 md:pl-24">
+          <p>None supplementary materials added</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
 
-                        {/* Image Section */}
-                        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                            <img
-                                className="object-cover object-center rounded"
-                                alt="hero"
-                                src={bannerImage}
-                            />
-                        </div>
-
-                        {/* Right Section - Certified by, 100% purely extracted, None supplementary materials */}
-                        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>Certified by --</p>
-                            </div>
-
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>100% purely extracted by nature</p>
-                            </div>
-
-                            <div className="mb-8 leading-relaxed text-xl w-full  pl-24">
-                                <p>None supplementary materials added</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
 
             {/* popular */}
-            <section className="bg-white py-6 px-6 mx-24">
+            <section className="bg-white py-6 px-6 md:mx-24">
                 {/* Heading */}
                 <h2 className="text-center text-4xl mb-8">Products Gallery</h2>
 
                 {/* Product Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="">
                         <img
                             src={gal1}
