@@ -24,10 +24,10 @@ export default function Shop() {
             {products.map((product) => (
               <div key={product.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                 {/* Using Link for navigation */}
-                <Link to={`/${product.link}${product.id}`} className="block relative h-48 rounded overflow-hidden">
+                <Link to={`${product.link}/${product.id}`} className="block relative h-48 rounded overflow-hidden">
                   <img
                     alt={product.title} // Alt text updated to be more descriptive
-                    className="object-cover object-center w-full h-full block"
+                    className="object-cover object-center w-full h-full block z-[-100]"
                     src={product.image}
                   />
                 </Link>

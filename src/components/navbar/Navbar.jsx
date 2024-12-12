@@ -6,6 +6,7 @@ import searchIcon from "../../assets/search.png";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    
     const [lsCartData, setLSCartData] = useState(
         JSON.parse(localStorage.getItem("Cart")) || []
     );
@@ -14,6 +15,7 @@ export default function Navbar() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+    
 
     // Update cart count when local storage data changes
     useEffect(() => {
@@ -41,97 +43,104 @@ export default function Navbar() {
     return (
         <header className="shadow-md w-full top-0 bg-primary z-10">
             <nav className="flex items-center justify-between p-4 md:px-8">
-                {/* Logo */}
-                <div className="flex items-center">
-                    <img src={logo} alt="Logo" className="h-20 w-24" />
+                <div className="flex justify-center items-center">
+                    <img src={logo} className="w-20 h-16" alt="himras-logo" />
                 </div>
 
-                {/* Hamburger Icon */}
-                <div className="md:hidden flex items-center">
-                    <button onClick={toggleMenu}>
+                <div className="hidden md:flex items-center justify-center md:justify-start p-2">
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        className="px-4 py-2 rounded-3xl w-[300px] focus:outline-none text-[14px]"
+                    />
+                    <img
+                        src={searchIcon}
+                        className="h-5 w-5 ml-2"
+                        alt="Search Icon"
+                    />
+                </div>
+
+                {/* For larger devices */}
+                <div className="hidden sm:block sm:w-[60%] md:w-[30%]">
+                    <ul className="flex justify-between items-center">
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/shop">Shop</Link>
+                        </li>
+                        <li className="relative flex items-center">
+                            {/* Cart icon with counter */}
+                            <Link to="/mycart" className="relative">
+                                <img
+                                    src={cartIcon}
+                                    className="h-6 w-6"
+                                    alt="Cart Icon"
+                                />
+                                {cartCount > 0 && (
+                                    <span className="absolute top-1 right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center transform translate-x-1/2 -translate-y-1/2">
+                                        {cartCount}
+                                    </span>
+                                )}
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+
+                {/* For Smaller Devices */}
+                <div className="block sm:hidden z-50">
+                    <div onClick={toggleMenu}>
                         <svg
-                            className="w-6 h-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-menu"
                         >
-                            <path
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </div>
+
+                    {/* Navigation page */}
+                    <div className={`${isOpen ? "block" : "hidden" } fixed h-screen w-screen bg-primary top-0 left-0`}>
+                        <ul className="h-full w-full flex justify-center items-center flex-col gap-10">
+                            <li onClick={toggleMenu}>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <Link to="/shop">Shop</Link>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <Link to="/mycart">My Cart</Link>
+                            </li>
+                        </ul>
+
+                        <div className="relative top-[-90%] left-[85%]" onClick={toggleMenu}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            ></path>
-                        </svg>
-                    </button>
-                </div>
-
-                {/* Navigation Links */}
-                <ul
-                    className={`lg:flex flex-col md:flex-row md:justify-center  md:gap-6 absolute md:static bg-primary left-0 top-16 w-full md:w-auto transition-transform duration-300 ease-in-out ${
-                        isOpen ? "block" : "hidden"
-                    } md:block`}
-                >
-                    <li className="text-center md:text-left lg:mt-2">
-                        <Link
-                            to="/"
-                            className="block p-2 bg-secondary py-1 px-2 text-white rounded-md"
-                        >
-                            Home
-                        </Link>
-                    </li>
-                    <li className="text-center md:text-left lg:mt-2">
-                        <Link
-                            to="/shop"
-                            className="block p-2 bg-secondary py-1 px-2 text-white rounded-md"
-                        >
-                            Shop
-                        </Link>
-                    </li>
-                    <li className="text-center md:text-left">
-                        <div className="flex items-center justify-center md:justify-start p-2">
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="px-2 py-1 rounded-3xl border border-black"
-                            />
-                            <img
-                                src={searchIcon}
-                                className="h-5 w-5 ml-2"
-                                alt="Search Icon"
-                            />
+                                className="lucide lucide-circle-x"
+                            >
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="m15 9-6 6" />
+                                <path d="m9 9 6 6" />
+                            </svg>
                         </div>
-                    </li>
-                </ul>
-
-                {/* Right Section */}
-                <div className="hidden md:flex gap-6 items-center">
-                    <div className="relative">
-                        <Link to="/mycart">
-                            <img
-                                src={cartIcon}
-                                alt="Cart"
-                                className="w-6 h-6"
-                            />
-                            {cartCount > 0 && (
-                                <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center -mt-1 -mr-1">
-                                    {cartCount}
-                                </span>
-                            )}
-                        </Link>
                     </div>
-                    {/* <Link
-                        to="/"
-                        className="bg-secondary py-1 px-2 text-white rounded-md cursor-pointer"
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        to="/"
-                        className="bg-secondary py-1 px-2 text-white rounded-md cursor-pointer"
-                    >
-                        Signup
-                    </Link> */}
                 </div>
             </nav>
         </header>
