@@ -1,4 +1,17 @@
 import React from "react";
+import backgroundImage from "../../assets/bg.png"
+import bannerImage from "../../assets/rmproduct6.png"
+import logo from "../../assets/logo.png"
+import gal1 from "../../assets/product1.jpg"
+import gal2 from "../../assets/product2.jpg"
+import gal3 from "../../assets/product3.jpg"
+import gal4 from "../../assets/product4.jpg"
+import gal5 from "../../assets/product5.jpg"
+import gal6 from "../../assets/product6.jpg"
+import gal7 from "../../assets/product7.jpg"
+import gal8 from "../../assets/product8.jpg"
+import gal9 from "../../assets/product9.png"
+
 
 export default function Home() {
     return (
@@ -6,7 +19,7 @@ export default function Home() {
             {/* home */}
 
             <section>
-                <img src="./bg.png" alt="" className="mb-6" />
+                <img src={backgroundImage} alt="" className="mb-6" />
             </section>
 
             {/* about */}
@@ -18,7 +31,7 @@ export default function Home() {
                             <img
                                 className="object-cover object-center rounded"
                                 alt="hero"
-                                src="./logo.png"
+                                src={logo}
                             />
                         </div>
                         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
@@ -68,7 +81,7 @@ export default function Home() {
                             <img
                                 className="object-cover object-center rounded"
                                 alt="hero"
-                                src="./rmproduct6.png"
+                                src={bannerImage}
                             />
                         </div>
 
@@ -99,63 +112,63 @@ export default function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="">
                         <img
-                            src="./product1.jpg"
+                            src={gal1}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product2.jpg"
+                            src={gal2}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product3.jpg"
+                            src={gal3}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product4.jpg"
+                            src={gal4}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product5.jpg"
+                            src={gal5}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product6.jpg"
+                            src={gal6}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product7.jpg"
+                            src={gal7}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product8.jpg"
+                            src={gal8}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
                     </div>
                     <div className="">
                         <img
-                            src="./product9.png"
+                            src={gal9}
                             alt=""
                             className="w-full h-64 object-cover"
                         />
