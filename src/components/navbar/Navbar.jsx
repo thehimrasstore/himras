@@ -66,7 +66,7 @@ export default function Navbar() {
                 </div>
 
                 {/* For larger devices */}
-                <div className="hidden sm:block sm:w-[60%] md:w-[30%]">
+                <div className="hidden sm:block sm:w-[40%] md:w-[20%]">
                     <ul className="flex justify-between items-center">
                         <li>
                             <Link to="/">Home</Link>
