@@ -1,11 +1,22 @@
-import productImageOne from "../assets/product1.jpg";
-import productImageTwo from "../assets/product2.jpg";
-import productImageThree from "../assets/product3.jpg";
-import productImageFour from "../assets/product4.jpg";
-import productImageFive from "../assets/product5.jpg";
-import productImageSix from "../assets/product6.jpg"; 
-import productImageSeven from "../assets/product7.jpg";
-import productImageEight from "../assets/product8.jpg";
+import productImageOne from "../assets/product10.jpg";
+import productImageTwo from "../assets/product6.jpg";
+import productImageThree from "../assets/product8.jpg";
+import productImageFour from "../assets/product13.jpg";
+import productImageFive from "../assets/product11.jpg";
+import productImageSix from "../assets/apple.jpg"; 
+import productImageSeven from "../assets/product9.png";
+import productImageEight from "../assets/product12.jpg";
+import salt1 from "../assets/salt1.jpg";
+import salt2 from "../assets/salt2.jpg";
+import salt3 from "../assets/salt3.jpg";
+import salt4 from "../assets/salt4.jpg";
+import salt5 from "../assets/salt5.jpg";
+import salt6 from "../assets/salt6.jpg";
+import salt7 from "../assets/salt7.jpg";
+import salt8 from "../assets/salt8.jpg";
+import salt9 from "../assets/salt9.jpg";
+import salt10 from "../assets/salt10.jpg";
+import salt11 from "../assets/salt11.jpg";
 
 const products = [
   {
@@ -87,7 +98,118 @@ const products = [
     rating: 4,
     link: '/shop/product',
     description: 'Green Chilli Pickle is a fiery and flavorful condiment that brings a burst of spice and tang to every meal. Made from fresh, handpicked green chilies, blended with aromatic spices, and preserved in traditional oils, this pickle offers an authentic taste of homemade goodness. Perfect for adding a zesty kick to your dal, rice, parathas, or snacks, it’s a must-have for spice lovers. Free from artificial preservatives, this pickle is a blend of bold flavors and natural ingredients, crafted to tantalize your taste buds with every bite!'
-  }
+  
+  },
+  {
+    id: "dfjkkj",
+    image: salt1,
+    category: 'Salt',
+    title: 'celery seeds salt, (100g)',
+    price: '120.00',
+    rating: 4,
+    link: '/shop/product',
+    description: 'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "sdnkn4",
+    image: salt2,
+    category: 'Salt',
+    title: 'Heeng jeera salt, (100g)',
+    price: '120.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "sdnkn43",
+    image: salt3,
+    category: 'Salt',
+    title: 'Garlic Yellow  chilli salt, (100g)',
+    price: '120.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "sdnk343",
+    image: salt4,
+    category: 'Salt',
+    title: 'garlic chipi salt, (100g)',
+    price: '150.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "sdn43",
+    image: salt5,
+    category: 'Salt',
+    title: 'Roasted chilli salt, (100g)',
+    price: '80.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "Mdnk343",
+    image: salt6,
+    category: 'Salt',
+    title: 'Roasted chilli salt, (100g)',
+    price: '80.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "Pdnk343",
+    image: salt7,
+    category: 'Salt',
+    title: 'Garlic Red Chilli Salt, (100g)',
+    price: '80.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "Dnk343",
+    image: salt8,
+    category: 'Salt',
+    title: 'Hemp Cumin Salt, (100g)',
+    price: '120.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "Wdnk343",
+    image: salt9,
+    category: 'Salt',
+    title: 'Perilla Seeds Salt, (100g)',
+    price: '80.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "Ednk343",
+    image: salt10,
+    category: 'Salt',
+    title: 'Garlic Mix Salt, (100g)',
+    price: '100.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
+  {
+    id: "SEnk343",
+    image: salt11,
+    category: 'Salt',
+    title: 'Ginger Salt, (100g)',
+    price: '100.00',
+    rating: 4,
+    link: '/shop/product',
+    description:'Purely handmade with traditional Silbatta (Sil & Batta are special quality stones, used for grinding to define the real taste of grinded items). Silbatta, the grinding stone set is a most ancient and conventional kitchen tool/appliance crafted entirely of up stone, which makes it a durable product. The experienced women of HimFla organization make different varieties of flavored salts on Silbatta.'
+  },
 ];
 
 export default products;
