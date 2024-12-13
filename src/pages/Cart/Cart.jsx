@@ -108,7 +108,7 @@ const Cart = () => {
                                             <input
                                                 type="number"
                                                 min="1"
-                                                value={item.quantity}
+                                                value={item.quantity || 0}
                                                 onChange={(e) =>
                                                     updateQuantity(
                                                         product.id,

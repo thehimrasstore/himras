@@ -36,7 +36,7 @@ export default function Home() {
                             />
                         </div>
                         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                            <p className="mb-8 leading-relaxed lg:mr-24">
+                            <p className="mb-8 leading-relaxed lg:mr-24 text-justify">
                                 Him-Ras is more than just a brand; it’s a
                                 journey into the heart of the Himalayas. Every
                                 product we offer is carefully crafted by
@@ -47,11 +47,11 @@ export default function Home() {
                                 you’re also supporting sustainable livelihoods
                                 and empowering communities.
                             </p>
-                            <div className="flex justify-center my-6 md:my-0">
+                            {/* <div className="flex justify-center my-6 md:my-0">
                                 <button className="inline-flex text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded text-lg">
                                     Know More
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </section>
