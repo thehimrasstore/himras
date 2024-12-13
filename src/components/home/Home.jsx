@@ -1,6 +1,6 @@
 import React from "react";
-import backgroundImage from "../../assets/bg.png";
 import bannerImage from "../../assets/rmproduct6.png";
+import heroVideo from "../../assets/hero.mp4";
 import logo from "../../assets/logo.png";
 import gal1 from "../../assets/product1.jpg";
 import gal2 from "../../assets/product2.jpg";
@@ -19,11 +19,13 @@ export default function Home() {
             {/* home */}
 
             <section>
-                <img src={backgroundImage} alt="" className="mb-6" />
+                <video autoPlay={true} muted loop={true} playsInline preload="auto">
+                    <source src={heroVideo} type="video/mp4" />
+                </video>
             </section>
 
             {/* about */}
-            <section>
+            <section className="my-12">
                 <section className="text-black body-font">
                     <h2 className="text-center text-4xl">About Us</h2>
                     <div className="container mx-auto flex px-5  md:flex-row flex-col items-center text-lg">
