@@ -20,11 +20,12 @@ export default function ProductDetails() {
     // To fetch message
     useEffect(() => {
         if (productData && productData.length > 0) {
-            const intialMessage = `Hey! I want to order: \n *${productData[0].title}* *Rs. ${productData[0].price}* *Quantity ${quantity}*`;
-            const finalMessage = encodeURIComponent(intialMessage);
+            const initialMessage = `Hey! I want to order: \n ● ${productData[0].title} ₹${productData[0].price} (x${quantity}) \n *Total: ₹${productData[0].price * quantity}*`;
+            const finalMessage = encodeURIComponent(initialMessage);
             setMessage(finalMessage);
         }
     }, [productData, quantity]);
+    
 
     // Add to Cart functionality
     const addToCart = () => {
