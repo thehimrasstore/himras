@@ -1,5 +1,4 @@
-import React from "react";
-import bannerImage from "../../assets/rmproduct6.webp";
+import React, { useEffect, useState } from "react";
 import heroVideo from "../../assets/hero.mp4";
 import logo from "../../assets/logo.png";
 import gal1 from "../../assets/product1.webp";
@@ -12,10 +11,64 @@ import gal7 from "../../assets/product7.webp";
 import gal8 from "../../assets/product8.webp";
 import gal9 from "../../assets/product9.webp";
 import gal10 from "../../assets/product11.webp";
+import underDev from "../../assets/under_dev.mp4"
 
 export default function Home() {
+    const [showPopup, setShowPopup] = useState(true);
+
+    useEffect(() => {
+        if (showPopup) {
+            document.body.classList.add("no-scroll");
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+        return () => {
+            document.body.classList.remove("no-scroll");
+        };
+    }, [showPopup]);
+
+    const onClose = () => {
+        setShowPopup(!showPopup);
+    };
+
     return (
-        <div className=" ">
+        <div>
+            {/* Under development popup */}
+            {showPopup && (
+                <section className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-50">
+                    {/* Backdrop */}
+                    <div
+                        className="absolute top-0 left-0 w-full h-full bg-black opacity-90"
+                        onClick={onClose}
+                    ></div>
+
+                    {/* Popup Content */}
+                    <div className="relative bg-white w-[90%] max-w-lg p-6 rounded-lg shadow-lg z-50">
+                        <video className="m-auto mb-4" muted autoPlay={true} loop={true} playsInline>
+                            <source src={underDev} />
+                        </video>
+                        
+                        
+                        {/* Close Button */}
+                        <button
+                            onClick={onClose}
+                            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-lg"
+                        >
+                            ✕
+                        </button>
+
+                        {/* Main Content */}
+                        <h2 className="text-2xl text-center font-bold text-gray-800 mb-4">
+                            Under Development
+                        </h2>
+                        <p className="text-gray-600 text-center">
+                            This website is under development. Stay tuned for
+                            something amazing!
+                        </p>
+                    </div>
+                </section>
+            )}
+
             {/* home */}
 
             <section>
@@ -209,7 +262,7 @@ export default function Home() {
                         {/* Hours Card */}
                         <div className="bg-primary rounded-lg shadow-md p-6">
                             <h3 className="text-xl font-semibold text-gray-900">
-                                Hours
+                                Working Hours
                             </h3>
                             <p className="mt-4 text-gray-600">
                                 Monday - Friday: 9am - 5pm

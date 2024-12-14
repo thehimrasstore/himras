@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import cartIcon from "../../assets/cart.png";
 import searchIcon from "../../assets/search.png";
@@ -11,6 +11,9 @@ export default function Navbar() {
         JSON.parse(localStorage.getItem("Cart")) || []
     );
     const [cartCount, setCartCount] = useState(lsCartData.length);
+    const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -69,14 +72,28 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:w-[40%] md:w-[20%]">
                     <ul className="flex justify-between items-center text-[20px]">
                         <li>
-                            <Link to="/" className="hover:text-green-900 transition-[.2s]">Home</Link>
+                            <NavLink
+                                to="/"
+                                className={`hover:text-green-900 transition-[.2s] ${
+                                    isActive("/") ? "isActive" : "text-black"
+                                }`}
+                            >
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to="/shop" className="hover:text-green-900 transition-[.2s]">Shop</Link>
+                            <NavLink
+                                to="/shop"
+                                className={`hover:text-green-900 transition-[.2s] ${
+                                    isActive("/shop") ? "isActive" : "text-black"
+                                }`}
+                            >
+                                Shop
+                            </NavLink>
                         </li>
                         <li className="relative flex items-center">
                             {/* Cart icon with counter */}
-                            <Link to="/mycart" className="relative">
+                            <NavLink to="/mycart" className="relative">
                                 <img
                                     src={cartIcon}
                                     className="h-8 w-8"
@@ -87,7 +104,7 @@ export default function Navbar() {
                                         {cartCount}
                                     </span>
                                 )}
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
@@ -121,13 +138,13 @@ export default function Navbar() {
                     >
                         <ul className="h-full w-full flex justify-center items-center flex-col gap-10 font-semibold text-[24px]">
                             <li onClick={toggleMenu}>
-                                <Link to="/">Home</Link>
+                                <NavLink className={isActive("/") ? "isActive" : "text-black"} to="/" >Home</NavLink>
                             </li>
                             <li onClick={toggleMenu}>
-                                <Link to="/shop">Shop</Link>
+                                <NavLink className={isActive("/shop") ? "isActive" : "text-black"} to="/shop">Shop</NavLink>
                             </li>
                             <li onClick={toggleMenu}>
-                                <Link to="/mycart">My Cart</Link>
+                                <NavLink className={isActive("/mycart") ? "isActive" : "text-black"} to="/mycart">My Cart</NavLink>
                             </li>
                         </ul>
 
