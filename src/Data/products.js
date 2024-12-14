@@ -1,22 +1,22 @@
-import productImageOne from "../assets/product10.jpg";
-import productImageTwo from "../assets/product6.jpg";
-import productImageThree from "../assets/product8.jpg";
-import productImageFour from "../assets/product13.jpg";
-import productImageFive from "../assets/product11.jpg";
+import productImageOne from "../assets/product10.webp";
+import productImageTwo from "../assets/product6.webp";
+import productImageThree from "../assets/product8.webp";
+import productImageFour from "../assets/product13.webp";
+import productImageFive from "../assets/product11.webp";
 import productImageSix from "../assets/apple.jpg"; 
-import productImageSeven from "../assets/product9.png";
-import productImageEight from "../assets/product12.jpg";
-import salt1 from "../assets/salt1.jpg";
-import salt2 from "../assets/salt2.jpg";
-import salt3 from "../assets/salt3.jpg";
-import salt4 from "../assets/salt4.jpg";
-import salt5 from "../assets/salt5.jpg";
-import salt6 from "../assets/salt6.jpg";
-import salt7 from "../assets/salt7.jpg";
-import salt8 from "../assets/salt8.jpg";
-import salt9 from "../assets/salt9.jpg";
-import salt10 from "../assets/salt10.jpg";
-import salt11 from "../assets/salt11.jpg";
+import productImageSeven from "../assets/product9.webp";
+import productImageEight from "../assets/product12.webp";
+import salt1 from "../assets/salt1.webp";
+import salt2 from "../assets/salt2.webp";
+import salt3 from "../assets/salt3.webp";
+import salt4 from "../assets/salt4.webp";
+import salt5 from "../assets/salt5.webp";
+import salt6 from "../assets/salt6.webp";
+import salt7 from "../assets/salt7.webp";
+import salt8 from "../assets/salt8.webp";
+import salt9 from "../assets/salt9.webp";
+import salt10 from "../assets/salt10.webp";
+import salt11 from "../assets/salt11.webp";
 
 const products = [
   {
@@ -33,7 +33,7 @@ const products = [
     id: "KvS7W8LGFbP3",
     image: productImageTwo,
     category: 'Squash',
-    title: 'Malta Squash',
+    title: 'Squash',
     price: '200.00',
     rating: 5,
     link: '/shop/product',
@@ -43,8 +43,8 @@ const products = [
     id: "tWv5X6BRLmK7",
     image: productImageThree,
     category: 'Lip Balm',
-    title: 'Lavendra',
-    price: '250.00',
+    title: 'Lavendra Lip Balm',
+    price: '100.00',
     rating: 4,
     link: '/shop/product',
     description: 'Organic Lip Balm is a nourishing blend of natural ingredients designed to keep your lips soft, hydrated, and healthy. Crafted with care, it contains organic butters, oils, and beeswax to lock in moisture and provide lasting protection against dryness and chapping. Free from harmful chemicals and synthetic additives, this gentle formula is suitable for all skin types, including sensitive lips. Available in a variety of subtle, natural flavors, this lip balm is perfect for daily use, leaving your lips feeling smooth, supple, and kissable. Pamper your lips with the pure goodness of nature!'

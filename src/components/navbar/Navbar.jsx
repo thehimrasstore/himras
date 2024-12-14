@@ -67,19 +67,19 @@ export default function Navbar() {
 
                 {/* For larger devices */}
                 <div className="hidden sm:block sm:w-[40%] md:w-[20%]">
-                    <ul className="flex justify-between items-center">
+                    <ul className="flex justify-between items-center text-[20px]">
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/" className="hover:text-green-900 transition-[.2s]">Home</Link>
                         </li>
                         <li>
-                            <Link to="/shop">Shop</Link>
+                            <Link to="/shop" className="hover:text-green-900 transition-[.2s]">Shop</Link>
                         </li>
                         <li className="relative flex items-center">
                             {/* Cart icon with counter */}
                             <Link to="/mycart" className="relative">
                                 <img
                                     src={cartIcon}
-                                    className="h-6 w-6"
+                                    className="h-8 w-8"
                                     alt="Cart Icon"
                                 />
                                 {cartCount > 0 && (
@@ -119,7 +119,7 @@ export default function Navbar() {
                             isOpen ? "block" : "hidden"
                         } fixed h-screen w-screen bg-primary top-0 left-0`}
                     >
-                        <ul className="h-full w-full flex justify-center items-center flex-col gap-10">
+                        <ul className="h-full w-full flex justify-center items-center flex-col gap-10 font-semibold text-[24px]">
                             <li onClick={toggleMenu}>
                                 <Link to="/">Home</Link>
                             </li>
