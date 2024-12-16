@@ -6,11 +6,11 @@ import searchIcon from "../../assets/search.png";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-
     const [lsCartData, setLSCartData] = useState(
         JSON.parse(localStorage.getItem("Cart")) || []
     );
     const [cartCount, setCartCount] = useState(lsCartData.length);
+    const [isFixed, setIsFixed] = useState(false); // State to manage fixed navbar
     const location = useLocation();
 
     const isActive = (path) => location.pathname === path;
@@ -42,8 +42,29 @@ export default function Navbar() {
         };
     }, []);
 
+    // Add scroll event listener to manage navbar position
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setIsFixed(true);
+            } else {
+                setIsFixed(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <header className="shadow-md w-full top-0 bg-primary z-10">
+        <header
+            className={`shadow-md w-full top-0 z-10 transition-all duration-300 ${
+                isFixed ? "fixed bg-white shadow-lg" : "bg-primary"
+            }`}
+        >
             <nav className="flex items-center justify-between p-4 md:px-8">
                 <div className="flex justify-center items-center">
                     <Link to="/">
@@ -84,7 +105,7 @@ export default function Navbar() {
                             <NavLink
                                 to="/"
                                 className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/shop")
+                                    isActive("/aboutUs")
                                         ? "isActive"
                                         : "text-black"
                                 }`}
@@ -96,7 +117,7 @@ export default function Navbar() {
                             <NavLink
                                 to="/"
                                 className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/shop")
+                                    isActive("/blogs")
                                         ? "isActive"
                                         : "text-black"
                                 }`}
@@ -108,7 +129,7 @@ export default function Navbar() {
                             <NavLink
                                 to="/"
                                 className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/shop")
+                                    isActive("/contactUs")
                                         ? "isActive"
                                         : "text-black"
                                 }`}

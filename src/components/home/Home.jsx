@@ -14,10 +14,31 @@ import gal10 from "../../assets/product11.webp";
 import underDev from "../../assets/under_dev.mp4";
 import { Link } from "react-router-dom";
 import icon from "../../assets/whatsappIcon.png";
-
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
     const [showPopup, setShowPopup] = useState(true);
+    const controls = useAnimation();
+    const [ref, inView] = useInView({ threshold: 0.5 });
+    const [womenArtisans, setWomenArtisans] = useState(0);
+    const [earningsPercent, setEarningsPercent] = useState(0);
+
+    const numberVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: (targetNumber) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                ease: "easeOut",
+            },
+
+            transitionEnd: {
+                textContent: targetNumber,
+            },
+        }),
+    };
 
     useEffect(() => {
         if (showPopup) {
@@ -33,6 +54,30 @@ export default function Home() {
     const onClose = () => {
         setShowPopup(!showPopup);
     };
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+
+            // Animate numbers when in view
+            const animateNumber = (setter, target, duration) => {
+                let start = 0;
+                const increment = target / (duration / 50); // Update every 50ms
+                const timer = setInterval(() => {
+                    start += increment;
+                    if (start >= target) {
+                        setter(target);
+                        clearInterval(timer);
+                    } else {
+                        setter(Math.floor(start));
+                    }
+                }, 50);
+            };
+
+            animateNumber(setWomenArtisans, 100, 2000); // Animate to 100 over 2 seconds
+            animateNumber(setEarningsPercent, 100, 2000); // Animate to 100 over 2 seconds
+        }
+    }, [inView, controls]);
 
     return (
         <div>
@@ -77,9 +122,13 @@ export default function Home() {
                 </section>
             )}
 
-                <a className="fixed right-4 bottom-4" href={`https://wa.me/918077129142?text=Hi!!`} target="_blank">
-                    <img className="w-14 h-14" src={icon} alt="" />
-                </a>
+            <a
+                className="fixed right-4 bottom-4"
+                href={`https://wa.me/918077129142?text=Hi!!`}
+                target="_blank"
+            >
+                <img className="w-14 h-14" src={icon} alt="" />
+            </a>
 
             {/* home */}
 
@@ -98,7 +147,7 @@ export default function Home() {
             {/* about */}
             <section className="my-12">
                 <section className="text-black body-font">
-                    <h2 className="text-center text-4xl">
+                    <h2 className="text-center text-4xl mb-8">
                         Join the{" "}
                         <span className="font-bold text-green-900">
                             HIM-RAS
@@ -114,10 +163,13 @@ export default function Home() {
                             />
                         </div>
                         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                            <p className="mb-6 leading-relaxed lg:mr-24 ">
+                            <p className="mb-2 leading-relaxed lg:mr-24 ">
                                 By supporting HIMRAS, you’re doing more than
                                 purchasing exceptional products — you’re making
-                                a difference. <br /> <span className="font-semibold">Together, we:</span>
+                                a difference. <br />{" "}
+                                <span className="font-semibold">
+                                    Together, we:
+                                </span>
                             </p>
                             <ul className="ml-10 list-disc mb-10">
                                 <li>
@@ -147,23 +199,52 @@ export default function Home() {
                 </section>
             </section>
 
-            {/* add */}
+            {/* Our Impact */}
 
             <section className="bg-secondary bg-no-repeat bg-cover my-20">
                 <section className="text-white body-font">
-                    <div className="container mx-auto flex px-5 py-10 flex-col gap-10 justify-center items-center">
+                    <div
+                        className="container mx-auto flex px-5 py-10 flex-col gap-8 justify-center items-center"
+                        ref={ref}
+                    >
                         <h1 className="text-[60px] mx-auto text-center underline-style">
                             Our Impact
                         </h1>
 
                         <ul className="text-center w-full text-[26px] leading-[2]">
                             <li>
-                                Empowering 100+ Women Artisans to achieve
-                                financial independence.
+                                <motion.span
+                                    className="text-primary"
+                                    initial={{ opacity: 0 }}
+                                    animate={controls}
+                                    variants={{
+                                        visible: {
+                                            opacity: 1,
+                                            transition: { duration: 0.5 },
+                                        },
+                                    }}
+                                >
+                                    {womenArtisans}
+                                </motion.span>
+                                + Women Artisans empowered to achieve financial
+                                independence.
                             </li>
                             <li>
-                                Helping SHGs retain 100% of earnings by
-                                eliminating middlemen.
+                                Helping SHGs retain{" "}
+                                <motion.span
+                                    className="text-primary"
+                                    initial={{ opacity: 0 }}
+                                    animate={controls}
+                                    variants={{
+                                        visible: {
+                                            opacity: 1,
+                                            transition: { duration: 0.5 },
+                                        },
+                                    }}
+                                >
+                                    {earningsPercent}
+                                </motion.span>
+                                % of earnings by eliminating middlemen.
                             </li>
                             <li>
                                 Supported sustainability efforts with
@@ -173,7 +254,7 @@ export default function Home() {
                     </div>
                 </section>
             </section>
-
+            
             {/* popular */}
             <section className="bg-white py-6 px-6 md:mx-24">
                 {/* Heading */}

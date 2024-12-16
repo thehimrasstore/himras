@@ -11,13 +11,13 @@ export default function ProductDetails() {
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
 
-    // To fetch product data
+    // Fetch product data
     useEffect(() => {
         const data = products.filter((product) => product.id === productId);
         setProductData(data);
     }, [productId]);
 
-    // To fetch message
+    // Update message for WhatsApp
     useEffect(() => {
         if (productData && productData.length > 0) {
             const initialMessage = `Hey! I want to order: \n ● ${productData[0].title} ₹${productData[0].price} (x${quantity}) \n *Total: ₹${productData[0].price * quantity}*`;
@@ -25,7 +25,6 @@ export default function ProductDetails() {
             setMessage(finalMessage);
         }
     }, [productData, quantity]);
-    
 
     // Add to Cart functionality
     const addToCart = () => {
@@ -35,12 +34,10 @@ export default function ProductDetails() {
         );
 
         if (existingProductIndex !== -1) {
-            // Update existing product quantity and price
             cartData[existingProductIndex].quantity += quantity;
             cartData[existingProductIndex].price =
                 cartData[existingProductIndex].quantity * productData[0].price;
         } else {
-            // Add new product to cart
             cartData.push({
                 quantity,
                 price: productData[0].price * quantity,
@@ -49,20 +46,13 @@ export default function ProductDetails() {
         }
 
         localStorage.setItem("Cart", JSON.stringify(cartData));
-
-        // Show popup
         setShowPopup(true);
         setTimeout(() => setShowPopup(false), 2000);
     };
 
-    const handleIncreaseQuantity = () => {
-        setQuantity(quantity + 1);
-    };
-
+    const handleIncreaseQuantity = () => setQuantity(quantity + 1);
     const handleDecreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
+        if (quantity > 1) setQuantity(quantity - 1);
     };
 
     return (
@@ -91,7 +81,7 @@ export default function ProductDetails() {
                             className="lucide lucide-chevron-left"
                         >
                             <path d="m15 18-6-6 6-6" />
-                        </svg>{" "}
+                        </svg>
                         Back to Previous Page
                     </button>
                     <div className="flex flex-wrap lg:flex-nowrap">
@@ -108,32 +98,12 @@ export default function ProductDetails() {
                             <h1 className="text-gray-900 text-3xl title-font font-semibold mb-4 capitalize">
                                 {productData && productData[0]?.title}
                             </h1>
-                            <div className="flex items-center mb-4">
-                                {[...Array(4)].map((_, index) => (
-                                    <svg
-                                        key={index}
-                                        fill="currentColor"
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        className="w-5 h-5 text-green-600"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                ))}
-                                <span className="text-gray-600 ml-2">
-                                    4 Reviews
-                                </span>
-                            </div>
                             <p className="leading-relaxed text-justify mb-4">
                                 {productData && productData[0]?.description}
                             </p>
                             <div className="flex items-center pb-5 border-b border-gray-200 mb-5">
                                 <span className="title-font font-medium text-2xl text-gray-900">
-                                    <span>&#8377;</span>
-                                    {productData && productData[0]?.price}
+                                    ₹{productData && productData[0]?.price}
                                 </span>
                             </div>
                             <div className="flex items-center gap-4 mb-6">
@@ -143,9 +113,7 @@ export default function ProductDetails() {
                                 >
                                     -
                                 </button>
-                                <span className="text-lg font-medium">
-                                    {quantity}
-                                </span>
+                                <span className="text-lg font-medium">{quantity}</span>
                                 <button
                                     className="bg-gray-200 text-gray-700 px-3 py-1 rounded"
                                     onClick={handleIncreaseQuantity}
@@ -170,6 +138,26 @@ export default function ProductDetails() {
                                         Buy Now
                                     </button>
                                 </a>
+                            </div>
+                            {/* Notice Section */}
+                            <div className="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 rounded">
+                                <h3 className="font-bold mb-2">Note:</h3>
+                                <p className="text-sm leading-6">
+                                    Our products are not eligible for returns. They are created by or
+                                    procured from small and marginal farmers. However, in the event of
+                                    your receiving a damaged product, please email a photograph of the
+                                    said product to us at
+                                    <a
+                                        href="mailto:contact@himras.in"
+                                        className="text-blue-600 underline mx-1"
+                                    >
+                                        contact@himras.in
+                                    </a>
+                                    within 48 hours of receiving your order.
+                                </p>
+                                <p className="text-sm mt-2">
+                                    Our team will get back with a resolution at the earliest.
+                                </p>
                             </div>
                         </div>
                     </div>
