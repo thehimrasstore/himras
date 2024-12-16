@@ -211,7 +211,7 @@ export default function Home() {
                             Our Impact
                         </h1>
 
-                        <ul className="text-center w-full text-[26px] leading-[2]">
+                        <ul className="text-center w-full  text-[20px] md:text-[26px] leading-[2]">
                             <li>
                                 <motion.span
                                     className="text-primary"
