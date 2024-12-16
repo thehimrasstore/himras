@@ -6,161 +6,92 @@ import searchIcon from "../../assets/search.png";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [lsCartData, setLSCartData] = useState(
-        JSON.parse(localStorage.getItem("Cart")) || []
-    );
-    const [cartCount, setCartCount] = useState(lsCartData.length);
-    const [isFixed, setIsFixed] = useState(false); // State to manage fixed navbar
+    const [cartCount, setCartCount] = useState(0);
+    const [isFixed, setIsFixed] = useState(false);
     const location = useLocation();
 
-    const isActive = (path) => location.pathname === path;
+    // Toggle the mobile menu
+    const toggleMenu = () => setIsOpen(!isOpen);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
-    // Update cart count when local storage data changes
+    // Update cart count from localStorage
     useEffect(() => {
         const updateCartCount = () => {
-            const updatedCartData =
-                JSON.parse(localStorage.getItem("Cart")) || [];
-
-            const totalCount = updatedCartData.reduce(
+            const cartData = JSON.parse(localStorage.getItem("Cart")) || [];
+            const totalCount = cartData.reduce(
                 (acc, item) => acc + item.quantity,
                 0
             );
-
             setCartCount(totalCount);
         };
 
         updateCartCount();
-
         const intervalId = setInterval(updateCartCount, 400);
 
-        return () => {
-            clearInterval(intervalId);
-        };
+        return () => clearInterval(intervalId);
     }, []);
 
-    // Add scroll event listener to manage navbar position
+    // Scroll event to manage fixed navbar
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setIsFixed(true);
-            } else {
-                setIsFixed(false);
-            }
+            setIsFixed(window.scrollY > 300);
         };
 
         window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const isActive = (path) => location.pathname === path;
 
     return (
         <header
-            className={`shadow-md w-full top-0 z-10 transition-all duration-300 ${
-                isFixed ? "fixed bg-white shadow-lg" : "bg-primary"
+            className={`w-full z-10 transition-all duration-300 ${
+                isFixed
+                    ? "fixed bg-white shadow-md top-0"
+                    : "relative bg-primary"
             }`}
         >
             <nav className="flex items-center justify-between p-4 md:px-8">
-                <div className="flex justify-center items-center">
-                    <Link to="/">
-                        <img
-                            src={logo}
-                            className="w-[100px] h-[63px]"
-                            alt="himras-logo"
-                        />
-                    </Link>
+                {/* Logo Section */}
+                <Link to="/" className="flex items-center">
+                    <img src={logo} className="w-[100px] h-[63px]" alt="Logo" />
+                </Link>
+
+                {/* Desktop Navigation */}
+                <div className="hidden sm:flex gap-6 text-lg">
+                    {["Home", "Shop", "About Us", "Blogs", "Contact Us"].map(
+                        (item, index) => (
+                            <NavLink
+                                key={index}
+                                to={`/${item
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "")}`}
+                                className={`hover:text-green-900 transition-all font-semibold ${
+                                    isActive(
+                                        `/${item
+                                            .toLowerCase()
+                                            .replace(/\s+/g, "")}`
+                                    )
+                                        ? "text-green-600"
+                                        : "text-black"
+                                }`}
+                            >
+                                {item}
+                            </NavLink>
+                        )
+                    )}
                 </div>
 
-                {/* For larger devices */}
-                <div className="hidden sm:block sm:w-[40%] md:w-[40%]">
-                    <ul className="flex justify-between items-center text-[20px]">
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/") ? "isActive" : "text-black"
-                                }`}
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/shop"
-                                className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/shop")
-                                        ? "isActive"
-                                        : "text-black"
-                                }`}
-                            >
-                                Shop
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/aboutUs")
-                                        ? "isActive"
-                                        : "text-black"
-                                }`}
-                            >
-                                About Us
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/blogs")
-                                        ? "isActive"
-                                        : "text-black"
-                                }`}
-                            >
-                                Blogs
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={`hover:text-green-900 transition-[.2s] ${
-                                    isActive("/contactUs")
-                                        ? "isActive"
-                                        : "text-black"
-                                }`}
-                            >
-                                Contact Us
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="hidden md:flex items-center justify-center md:justify-start p-2 gap-10">
-                    <img
-                        src={searchIcon}
-                        className="h-8 w-8 ml-2"
-                        alt="Search Icon"
-                    />
-                    <li className="relative flex items-center">
-                        {/* Cart icon with counter */}
-                        <NavLink to="/mycart" className="relative">
-                            <img
-                                src={cartIcon}
-                                className="h-8 w-8"
-                                alt="Cart Icon"
-                            />
-                            {cartCount > 0 && (
-                                <span className="absolute top-1 right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center transform translate-x-1/2 -translate-y-1/2">
-                                    {cartCount}
-                                </span>
-                            )}
-                        </NavLink>
-                    </li>
+                {/* Icons Section */}
+                <div className="hidden md:flex items-center gap-6">
+                    <img src={searchIcon} className="h-6 w-6" alt="Search" />
+                    <NavLink to="/mycart" className="relative">
+                        <img src={cartIcon} className="h-6 w-6" alt="Cart" />
+                        {cartCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                {cartCount}
+                            </span>
+                        )}
+                    </NavLink>
 
                     <li className="list-none">
                         <svg
@@ -181,96 +112,68 @@ export default function Navbar() {
                     </li>
                 </div>
 
-                {/* For Smaller Devices */}
-                <div className="block sm:hidden z-50">
-                    <div onClick={toggleMenu}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="lucide lucide-menu"
-                        >
-                            <line x1="4" x2="20" y1="12" y2="12" />
-                            <line x1="4" x2="20" y1="6" y2="6" />
-                            <line x1="4" x2="20" y1="18" y2="18" />
-                        </svg>
-                    </div>
-
-                    {/* Navigation page */}
-                    <div
-                        className={`${
-                            isOpen ? "block" : "hidden"
-                        } fixed h-screen w-screen bg-primary top-0 left-0`}
+                {/* Mobile Menu Button */}
+                <button
+                    onClick={toggleMenu}
+                    className="sm:hidden text-black focus:outline-none z-50"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                     >
-                        <ul className="h-full w-full flex justify-center items-center flex-col gap-10 font-semibold text-[24px]">
-                            <li onClick={toggleMenu}>
-                                <NavLink
-                                    className={
-                                        isActive("/")
-                                            ? "isActive"
-                                            : "text-black"
-                                    }
-                                    to="/"
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <NavLink
-                                    className={
-                                        isActive("/shop")
-                                            ? "isActive"
-                                            : "text-black"
-                                    }
-                                    to="/shop"
-                                >
-                                    Shop
-                                </NavLink>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <NavLink
-                                    className={
-                                        isActive("/mycart")
-                                            ? "isActive"
-                                            : "text-black"
-                                    }
-                                    to="/mycart"
-                                >
-                                    My Cart
-                                </NavLink>
-                            </li>
-                        </ul>
-
-                        <div
-                            className="relative top-[-90%] left-[85%]"
-                            onClick={toggleMenu}
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="32"
-                                height="32"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
+                        {isOpen ? (
+                            <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                className="lucide lucide-circle-x"
-                            >
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="m15 9-6 6" />
-                                <path d="m9 9 6 6" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                                strokeWidth="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        ) : (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        )}
+                    </svg>
+                </button>
             </nav>
+
+            {/* Mobile Menu */}
+            <div
+                className={`fixed top-0 left-0 w-full h-full bg-primary text-white transform ${
+                    isOpen ? "translate-x-0" : "-translate-x-full"
+                } transition-transform duration-300 ease-in-out sm:hidden`}
+            >
+                <ul className="flex flex-col items-center justify-center h-full gap-8 text-xl">
+                    {["Home", "Shop", "My Cart"].map((item, index) => (
+                        <li key={index} onClick={toggleMenu}>
+                            <NavLink
+                                to={`/${item
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "")}`}
+                                className={`hover:text-green-800 ${
+                                    isActive(`/${item.toLowerCase()}`)
+                                        ? "text-green-600"
+                                        : "text-black"
+                                }`}
+                            >
+                                {item}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+                {/* Close Button */}
+                <button
+                    onClick={toggleMenu}
+                    className="absolute top-6 right-6  focus:outline-none"
+                >
+                </button>
+            </div>
         </header>
     );
 }

@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import ProductDetails from './components/productsDetails/ProductDetails.jsx';
 import './App.css';
 import Cart from './pages/Cart/Cart.jsx';
+import ComingSoon from './pages/CommingSoon/CommingSoon.jsx';
 // import Signup from './components/register/Signup';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         {/* <Route path="/signup" element={<Signup />} /> */}
         {/* Added Dynamic Routes */}
@@ -22,6 +23,9 @@ function App() {
           element={<ProductDetails />}
         />
         <Route path="/mycart" element={<Cart />} />
+        <Route path="/aboutus" element={<ComingSoon />} />
+        <Route path="/blogs" element={<ComingSoon />} />
+        <Route path="/contactus" element={<ComingSoon />} />
        
       </Routes>
       <Footer />
