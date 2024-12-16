@@ -22,7 +22,6 @@ const products = [
   {
     id: "4BJ2CRxN0Vm8",
     image: productImageOne,
-    category: 'Candle',
     title: 'Jar candle',
     price: '120.00',
     rating: 4,
@@ -32,7 +31,6 @@ const products = [
   {
     id: "KvS7W8LGFbP3",
     image: productImageTwo,
-    category: 'Squash',
     title: 'Squash',
     price: '200.00',
     rating: 5,
@@ -42,8 +40,7 @@ const products = [
   {
     id: "tWv5X6BRLmK7",
     image: productImageThree,
-    category: 'Lip Balm',
-    title: 'Lavendra Lip Balm',
+    title: 'Lavender Lip Balm',
     price: '100.00',
     rating: 4,
     link: '/shop/product',
@@ -52,7 +49,6 @@ const products = [
   {
     id: "8ZNv1XFLvK37",
     image: productImageFour,
-    category: 'Honey',
     title: 'Raw Multiflora',
     price: '200.00',
     rating: 4,
@@ -62,7 +58,6 @@ const products = [
   {
     id: "PLv8X6BRKmZ2",
     image: productImageFive,
-    category: 'Ghee',
     title: 'A2 Cow Ghee (250ml)',
     price: '700.00',
     rating: 2,
@@ -72,7 +67,6 @@ const products = [
   {
     id: "7NMBX9v4LFK2",
     image: productImageSix,
-    category: 'Jam',
     title: 'Apple Jam',
     price: '180.00',
     rating: 5,
@@ -82,7 +76,6 @@ const products = [
   {
     id: "tZXB8NPLv7K4",
     image: productImageSeven,
-    category: 'Tea',
     title: 'Masala Tea',
     price: '300.00',
     rating: 4,
@@ -92,7 +85,6 @@ const products = [
   {
     id: "vPLK8X6ZNM37",
     image: productImageEight,
-    category: 'Pickle',
     title: 'Green chilli pickle',
     price: '180.00',
     rating: 4,
@@ -103,7 +95,6 @@ const products = [
   {
     id: "dfjkkj",
     image: salt1,
-    category: 'Salt',
     title: 'celery seeds salt, (100g)',
     price: '120.00',
     rating: 4,
@@ -113,7 +104,6 @@ const products = [
   {
     id: "sdnkn4",
     image: salt2,
-    category: 'Salt',
     title: 'Heeng jeera salt, (100g)',
     price: '120.00',
     rating: 4,
@@ -123,7 +113,6 @@ const products = [
   {
     id: "sdnkn43",
     image: salt3,
-    category: 'Salt',
     title: 'Garlic Yellow  chilli salt, (100g)',
     price: '120.00',
     rating: 4,
@@ -133,7 +122,6 @@ const products = [
   {
     id: "sdnk343",
     image: salt4,
-    category: 'Salt',
     title: 'garlic chipi salt, (100g)',
     price: '150.00',
     rating: 4,
@@ -143,7 +131,6 @@ const products = [
   {
     id: "sdn43",
     image: salt5,
-    category: 'Salt',
     title: 'Roasted chilli salt, (100g)',
     price: '80.00',
     rating: 4,
@@ -153,7 +140,6 @@ const products = [
   {
     id: "Mdnk343",
     image: salt6,
-    category: 'Salt',
     title: 'Roasted chilli salt, (100g)',
     price: '80.00',
     rating: 4,
@@ -163,7 +149,6 @@ const products = [
   {
     id: "Pdnk343",
     image: salt7,
-    category: 'Salt',
     title: 'Garlic Red Chilli Salt, (100g)',
     price: '80.00',
     rating: 4,
@@ -173,7 +158,6 @@ const products = [
   {
     id: "Dnk343",
     image: salt8,
-    category: 'Salt',
     title: 'Hemp Cumin Salt, (100g)',
     price: '120.00',
     rating: 4,
@@ -183,7 +167,6 @@ const products = [
   {
     id: "Wdnk343",
     image: salt9,
-    category: 'Salt',
     title: 'Perilla Seeds Salt, (100g)',
     price: '80.00',
     rating: 4,
@@ -193,7 +176,6 @@ const products = [
   {
     id: "Ednk343",
     image: salt10,
-    category: 'Salt',
     title: 'Garlic Mix Salt, (100g)',
     price: '100.00',
     rating: 4,
@@ -203,7 +185,6 @@ const products = [
   {
     id: "SEnk343",
     image: salt11,
-    category: 'Salt',
     title: 'Ginger Salt, (100g)',
     price: '100.00',
     rating: 4,

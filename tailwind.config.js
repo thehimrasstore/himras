@@ -10,6 +10,9 @@ export default {
         primary: "#E1DDD6",
         secondary: "#0C2828",
         tertiary: "#B7E1C0",
+      },
+      backgroundImage: {
+        footerImage: "url('./assets/footerImage.webp')",
       }
     },
   },
