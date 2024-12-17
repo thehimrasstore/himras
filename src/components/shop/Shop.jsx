@@ -32,9 +32,9 @@ export default function Shop() {
                   />
                 </Link>
                 <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                  {/* <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                     {product.category}
-                  </h3>
+                  </h3> */}
                   <h2 className="text-gray-900 title-font text-lg font-medium capitalize">
                     <Link to={`${product.link}/${product.id}`}>{product.title}</Link> {/* Link for the product title */}
                   </h2>
