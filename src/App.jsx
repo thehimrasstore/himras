@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import Shop from './components/shop/Shop';
@@ -16,7 +16,6 @@ function App() {
       <Routes>
         {/* Redirect root to /home */}
         <Route path="/" element={<Navigate to="/home" />} />
-        
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         {/* <Route path="/signup" element={<Signup />} /> */}
